@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 
 import '../../controllers/video_controller.dart';
 import '../../values.dart';
+import 'comment_screen.dart';
 
 class VideoScreen extends StatelessWidget {
   VideoScreen({Key? key}) : super(key: key);
@@ -154,14 +155,13 @@ class VideoScreen extends StatelessWidget {
                                   Column(
                                     children: [
                                       InkWell(
-                                        onTap: () => {},
-                                        // onTap: () => Navigator.of(context).push(
-                                        //   MaterialPageRoute(
-                                        //     builder: (context) => CommentScreen(
-                                        //       id: data.id,
-                                        //     ),
-                                        //   ),
-                                        //),
+                                        onTap: () => Navigator.of(context).push(
+                                          MaterialPageRoute(
+                                            builder: (context) => CommentScreen(
+                                              id: data.id,
+                                            ),
+                                          ),
+                                        ),
                                         child: const Icon(
                                           Icons.comment,
                                           size: 36,

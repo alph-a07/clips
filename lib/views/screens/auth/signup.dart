@@ -1,4 +1,3 @@
-import 'package:clips/controllers/auth_controller.dart';
 import 'package:clips/views/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 
@@ -12,9 +11,6 @@ class SignUpScreen extends StatelessWidget {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _usernameController = TextEditingController();
-
-  final AuthController _authController =
-      AuthController(); // Use same instance of AuthController to use profile picture in cache
 
   @override
   Widget build(BuildContext context) {
@@ -56,7 +52,7 @@ class SignUpScreen extends StatelessWidget {
                   bottom: -10,
                   left: 80,
                   child: IconButton(
-                    onPressed: () => _authController.pickImage(),
+                    onPressed: () => authController.pickImage(),
                     icon: const Icon(
                       Icons.add_a_photo,
                       color: buttonColor,
@@ -106,11 +102,8 @@ class SignUpScreen extends StatelessWidget {
               height: 28,
             ),
             CustomButton(
-                onTap: () => _authController.registerUser(
-                    _usernameController.text,
-                    _emailController.text,
-                    _passwordController.text,
-                    _authController.profilePhoto),
+                onTap: () => authController.registerUser(_usernameController.text, _emailController.text,
+                    _passwordController.text, authController.profilePhoto),
                 text: 'Sign Up'),
             const SizedBox(
               height: 15,
