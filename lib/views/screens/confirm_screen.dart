@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:video_player/video_player.dart';
 
-import '../../controllers/upload_controller.dart';
+import '../../controllers/upload_video_controller.dart';
 import '../widgets/text_input_field.dart';
 
 class ConfirmScreen extends StatefulWidget {

@@ -13,6 +13,7 @@ import 'controllers/auth_controller.dart';
 const backgroundColor = Colors.black;
 const buttonColor = Color.fromARGB(255, 253, 134, 0);
 const borderColor = Colors.grey;
+const secondaryColor = Color.fromARGB(180, 255, 255, 255);
 
 // STRINGS
 const appTitle = 'Clips';
