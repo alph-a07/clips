@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "38319402528",
+    "project_id": "clips-3d14e",
+    "storage_bucket": "clips-3d14e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:38319402528:android:c914c378773502d91d9645",
+        "android_client_info": {
+          "package_name": "com.example.clips"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "38319402528-uogf0i25ku9i3ffeh08c5ntvjberrids.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB9NdkzJwXhYPx2GQ7jmeqfihZDt1hHFcs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "38319402528-uogf0i25ku9i3ffeh08c5ntvjberrids.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
