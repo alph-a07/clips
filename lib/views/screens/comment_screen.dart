@@ -37,68 +37,75 @@ class CommentScreen extends StatelessWidget {
                   return ListView.builder(
                     itemCount: commentController.comments.length,
                     itemBuilder: (context, index) {
-                      // Get the comment for the current index
                       final comment = commentController.comments[index];
-                      return ListTile(
-                        leading: CircleAvatar(
-                          backgroundColor: Colors.black,
-                          backgroundImage: NetworkImage(comment.profilePhoto),
-                        ),
-                        title: Row(
+
+                      return Container(
+                        padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            // Display the commenter's username
-                            Text(
-                              "${comment.username}  ",
-                              style: const TextStyle(
-                                fontSize: 20,
-                                color: Colors.red,
-                                fontWeight: FontWeight.w700,
+                            CircleAvatar(
+                              backgroundColor: Colors.black,
+                              backgroundImage: NetworkImage(comment.profilePhoto),
+                            ),
+                            const SizedBox(width: 12), // Add spacing between avatar and content
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    comment.username,
+                                    style: const TextStyle(
+                                      fontSize: 16,
+                                      color: buttonColor,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                  const SizedBox(height: 4),
+                                  Text(
+                                    comment.comment,
+                                    style: const TextStyle(
+                                      fontSize: 16,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w400,
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
-                            // Display the comment text
-                            Text(
-                              comment.comment,
-                              style: const TextStyle(
-                                fontSize: 20,
-                                color: Colors.white,
-                                fontWeight: FontWeight.w500,
+                            const SizedBox(width: 10),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.end,
+                              children: [
+                                Text(
+                                  tago.format(
+                                    comment.datePublished.toDate(),
+                                  ),
+                                  style: const TextStyle(
+                                    fontSize: 12,
+                                    color: secondaryColor,
+                                  ),
+                                ),
+                                const SizedBox(height: 4),
+                                Text(
+                                  '${comment.likes.length} likes',
+                                  style: const TextStyle(
+                                    fontSize: 12,
+                                    color: secondaryColor,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            const SizedBox(width: 8), // Add spacing between content and trailing icon
+                            InkWell(
+                              onTap: () => commentController.likeComment(comment.id),
+                              child: Icon(
+                                Icons.favorite,
+                                size: 20,
+                                color: comment.likes.contains(authController.user.uid) ? Colors.red : secondaryColor,
                               ),
                             ),
                           ],
-                        ),
-                        subtitle: Row(
-                          children: [
-                            // Display the time since the comment was published
-                            Text(
-                              tago.format(
-                                comment.datePublished.toDate(),
-                              ),
-                              style: const TextStyle(
-                                fontSize: 12,
-                                color: Colors.white,
-                              ),
-                            ),
-                            const SizedBox(
-                              width: 10,
-                            ),
-                            // Display the number of likes for the comment
-                            Text(
-                              '${comment.likes.length} likes',
-                              style: const TextStyle(
-                                fontSize: 12,
-                                color: Colors.white,
-                              ),
-                            )
-                          ],
-                        ),
-                        trailing: InkWell(
-                          onTap: () => commentController.likeComment(comment.id),
-                          child: Icon(
-                            Icons.favorite,
-                            size: 25,
-                            // Change the heart color based on whether the current user liked the comment
-                            color: comment.likes.contains(authController.user.uid) ? Colors.red : Colors.white,
-                          ),
                         ),
                       );
                     },
@@ -116,9 +123,9 @@ class CommentScreen extends StatelessWidget {
                   decoration: const InputDecoration(
                     labelText: 'Comment',
                     labelStyle: TextStyle(
-                      fontSize: 20,
+                      fontSize: 18,
                       color: Colors.white,
-                      fontWeight: FontWeight.w700,
+                      fontWeight: FontWeight.w600,
                     ),
                     enabledBorder: UnderlineInputBorder(
                       borderSide: BorderSide(
